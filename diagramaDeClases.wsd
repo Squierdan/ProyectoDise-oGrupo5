@@ -1,0 +1,121 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' =====================
+' Clases
+' =====================
+
+abstract class Usuario {
+    +id : Int
+    +nombres : String
+    +apellidos : String
+    +correo_institucional : String
+    +password : String
+    +ultima_conexion : DateTime
+    +activo : Boolean
+    --
+    +login()
+    +logout()
+}
+
+class Estudiante {
+    +cedula_pasaporte : String
+    +numero_matricula : String
+    +carrera : String
+    +semestre : Int
+    +celular : String
+    --
+    +consultarDashboard()
+    +subirInforme(informe : Informe)
+}
+
+class Docente {
+    +titulos_academicos : String
+    --
+    +invitarEstudiante(correo : String)
+    +gestionarPeriodos(proyecto : Proyecto)
+    +revisarInforme(informe : Informe, feedback : String)
+}
+
+class Administrador {
+    +id_facultad_asignada : Int
+    --
+    +crearProyecto(proyecto : Proyecto)
+    +vincularDocente(docente : Docente, proyecto : Proyecto)
+    +darBajaEstudiante(estudiante : Estudiante, proyecto : Proyecto)
+    +auditarSistema()
+}
+
+class Proyecto {
+    +id : Int
+    +codigo_unico : String
+    +identificador : String
+    +nombre : String
+    +descripcion : String
+    +fecha_inicio : DateTime
+    +fecha_fin : DateTime
+    +estado : String
+    --
+    +calcularProgreso()
+}
+
+class Informe {
+    +id : Int
+    +archivo_url : String
+    +fecha_entrega : DateTime
+    +deadline : DateTime
+    +estado_revision : Enum
+    +feedback : String
+    --
+    +validarEntrega()
+}
+
+class Whitelist {
+    +id : Int
+    +correo_autorizado : String
+    +fecha_invitacion : DateTime
+    +ya_registrado : Boolean
+}
+
+class Facultad {
+    +id : Int
+    +nombre : String
+}
+
+class Notificacion {
+    +id : Int
+    +mensaje : String
+    +tipo : Enum
+    +fecha_envio : DateTime
+    --
+    +enviarCorreo()
+}
+
+' =====================
+' Herencia
+' =====================
+
+Usuario <|-- Estudiante
+Usuario <|-- Docente
+Usuario <|-- Administrador
+
+' =====================
+' Relaciones
+' =====================
+
+Facultad "1" -- "*" Proyecto : pertenece
+Facultad "1" -- "1" Administrador : gestiona
+
+Proyecto "1" -- "1" Docente : Director
+Proyecto "*" -- "*" Docente : Colaboradores
+Proyecto "1" -- "*" Estudiante : Ayudantes
+
+Proyecto "1" -- "*" Informe : contiene
+Estudiante "1" -- "*" Informe : entrega
+
+Docente "1" -- "*" Whitelist : autoriza
+Whitelist "1" -- "0..1" Estudiante : permite_registro
+
+Usuario "1" -- "*" Notificacion : recibe
+
+@enduml
