@@ -1,0 +1,12 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+*.log
+*.tmp
+
+# IDEs comunes
+.vscode/
+.idea/
+*.iml
