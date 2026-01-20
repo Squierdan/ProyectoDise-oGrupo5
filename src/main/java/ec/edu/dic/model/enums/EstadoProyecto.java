@@ -1,4 +1,4 @@
-package logic;
+﻿package ec.edu.dic.model.enums;
 
 public enum EstadoProyecto {
     POSTULACION,
