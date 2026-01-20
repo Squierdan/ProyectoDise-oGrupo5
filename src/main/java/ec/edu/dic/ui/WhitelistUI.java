@@ -22,7 +22,7 @@ public class WhitelistUI extends JFrame {
     private final JTable table = new JTable(model);
 
     public WhitelistUI() {
-        super("Modulo Whitelist (Basico)");
+        super("Whitelist");
         setSize(850, 420);
         setLocationRelativeTo(null);
 

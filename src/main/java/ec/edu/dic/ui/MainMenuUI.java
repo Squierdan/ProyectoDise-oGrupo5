@@ -6,7 +6,7 @@ import java.awt.*;
 public class MainMenuUI extends JFrame {
 
     public MainMenuUI() {
-        super("Sistema DIC - Menu Principal (Cascarita)");
+        super("Sistema DIC - Menu Principal");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 250);
         setLocationRelativeTo(null);
@@ -14,8 +14,8 @@ public class MainMenuUI extends JFrame {
         JLabel title = new JLabel("Seleccione un modulo", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 18));
 
-        JButton btnWhitelist = new JButton("Modulo Whitelist");
-        JButton btnVerificador = new JButton("Modulo Verificador");
+        JButton btnWhitelist = new JButton("Whitelist");
+        JButton btnVerificador = new JButton("Verificador");
 
         btnWhitelist.addActionListener(e -> new WhitelistUI().setVisible(true));
         btnVerificador.addActionListener(e -> new VerificadorUI().setVisible(true));
