@@ -1,0 +1,6 @@
+jefe,123,JEFE,Carlos,Martinez
+director1,123,DIRECTOR,Juan,Perez
+estudiante1,123,AYUDANTE,Ana,Gomez
+
+santi,123,AYUDANTE,Santiago,Pinta
+K,123,AYUDANTE,Kevin,L
