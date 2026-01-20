@@ -27,7 +27,7 @@ public class VerificadorUI extends JFrame {
     private final JTable table = new JTable(model);
 
     public VerificadorUI() {
-        super("Modulo Verificador (Basico)");
+        super("Verificador");
         setSize(900, 520);
         setLocationRelativeTo(null);
 
